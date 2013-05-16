@@ -1,2 +1,3 @@
-first commit. 15.05.2013 TEST
-second commit. 16.05.2013 TEST-2
+16.05.2013 filesystem.cpp
+to compile:
+g++ filesystem.cpp -o filesystem -lboost_system -lboost_filesystem -lboost_date_time
