@@ -1,3 +1,8 @@
-16.05.2013 filesystem.cpp
-to compile:
+16.05.2013
+cpp and bash_script branches merged into master.
+to compile filesystem.cpp use the following command:
 g++ filesystem.cpp -o filesystem -lboost_system -lboost_filesystem -lboost_date_time
+
+script1.sh outputs the current state of RAM, based on /proc/meminfo file if not given any other surce as an argument.
+
+script2.sh compiles filesystem.cpp
