@@ -11,6 +11,12 @@ using namespace boost::posix_time;
 
 int main(int argc, char **argv)
 {
+	if(argc != 2)
+	{
+		cout << format("USAGE: ./filesystem /path/to/dir\n");
+		return 1;
+	}
+
 	ptime stop, start = microsec_clock::universal_time();
 	time_duration t_dur;
 	path p(*(argv +1));
@@ -20,7 +26,10 @@ int main(int argc, char **argv)
 		if(exists(p))
 		{
 			if(is_regular_file(p))
+				{
 				cout << format("%2%Is not a directory.Type: file\nSize is %1%\n") % file_size(p) % *(argv +1);
+				return 1;
+				}
 			else if(is_directory(p))
 			{
 				cout << format("List of files int %1%") % *(argv +1);
@@ -41,14 +50,19 @@ int main(int argc, char **argv)
 			else
 			{
 				cout << format("%1% exists, but is neither a regular file or directory\n") % p;
+				return 1;
 			}
 		}
 		else
+		{
 			cout << format("%1% does not exist\n") % p;
+			return 1;
+		}
 	}
 	catch(const filesystem_error& ex)
 	{
 		cout << format("%1%\n") % ex.what();
+		return 1;
 	}
 
 	stop = microsec_clock::universal_time();
