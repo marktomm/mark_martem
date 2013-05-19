@@ -1,3 +1,7 @@
+19.05.2013
+
+Minor adjustments in script1.sh: using 'sed' instead of arithmetical approach.
+
 16.05.2013
 cpp and bash_script branches merged into master.
 to compile filesystem.cpp use the following command:
